@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+	{% include 'blog_navigation.html' %}
+	{% for article in articles %}
+		<ul class="archive">
+			<li>{{ article.date|date:"Y-m-d" }} - <a href="{{ article.get_absolute_url }}">{{ article.title }}</a></li>
+		</ul>
+	{% endfor %}
+	<div id="contentPush"></div>
+{% endblock %}

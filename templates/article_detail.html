@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+	{% include 'blog_navigation.html' %}
+	<div class="article">
+		<h3><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h3>
+		<h5>
+			{% trans "Posted on" %}
+			{{ article.date|date:"Y-m-d" }}
+			<br>{% trans "By" %}
+			{{ article.author.first_name }} {{ article.author.last_name }}
+			{% trans "in" %}
+			{% for category in article.categories.all %}
+				<a href="{{ category.get_absolute_url }}">{{ category.name }}</a>{% if not forloop.last %}, {% endif %}{% if forloop.last %}. {% endif %}
+			{% endfor %}
+		</h5>
+		<p class="article-body">{{ article.body|safe }}</p>
+	</div>
+	<h4>{% trans 'Comments' %} ( {{ article.get_comment_count }} )</h4>
+	{% if comments %}
+		<div id="commentList">
+			{% load gravatar %}
+			{% for comment in comments %}
+				<table class="{% cycle 'comment' 'commentAlt' %}">
+					<tr><td colspan="2"><h5>
+						{{ comment.date|date:"Y-m-d H:i" }}
+						{% trans 'by' %}
+						{% if comment.website %}
+							<a href="{{ comment.website }}" alt="Website from this comment">
+						{% endif %}
+						{% if comment.author %}
+							{{ comment.author.first_name }} {{ comment.author.last_name }}
+						{% elif comment.name %}
+							{{ comment.name }}
+						{% else %}
+							Anonymous
+						{% endif %}
+						{% if comment.website %}
+							</a>
+						{% endif %}
+					</h5></td></tr>
+					<tr>
+						<td class="gravatarCol">{% gravatar comment.email 48 %}</td>
+						<td class="{% if comment.author %}commentAuthor{% endif %}">{{ comment.text|linebreaks }}</td>
+					</tr>
+				</table>
+			{% endfor %}
+		</div>
+	{% endif %}
+	<h4>{% trans 'Add a comment' %}</h4>
+	<form id="commentForm" action="" method="POST">
+		{% csrf_token %}
+		<div class="commentErrors">
+			{{ form.non_field_errors }}
+			{{ form.name.errors }}
+			{{ form.name.email }}
+			{{ form.name.website }}
+			{{ form.text.errors }}
+			{{ form.captcha.errors }}
+		</div>
+		<table>
+			<tr>
+				<th>{{ form.name.help_text }}</th>
+				<td colspan="2">{{ form.name }}</td>
+			</tr>
+			<tr>
+				<th>{{ form.email.help_text }}</th>
+				<td colspan="2">{{ form.email }}</td>
+			</tr>
+			<tr>
+				<th>{{ form.website.help_text }}</th>
+				<td colspan="2">{{ form.website }}</td>
+			</tr>
+			<tr>
+				<th>{{ form.text.help_text }}</th>
+				<td colspan="2">{{ form.text }}</td>
+			</tr>
+			<tr>
+				<th>{% trans 'Captcha' %}</th>
+				<td>{{ form.captcha }}</td>
+				<td><input class="commentButton" type="submit" name="submit" value="{% trans 'Send' %}" /></td>
+			</tr>
+		</table>
+	</form>
+	<div id="contentPush"><script type="text/javascript">SyntaxHighlighter.all()</script></div>
+{% endblock %}

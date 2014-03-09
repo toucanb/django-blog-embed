@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'css/blog.css' %}" type="text/css" media="screen">
+
+<script type="text/javascript" src="{% static 'js/shCore.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/shBrushPython.js' %}"></script>
+ 
+<link href="{% static 'css/shCore.css' %}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/shThemeEmacs.css' %}" rel="stylesheet" type="text/css" />
+
+<h5 class="blogNavigation">
+	{% if not categories and not category and not article and not archive %}Blog&nbsp;&nbsp;>{% endif %}
+	{% if categories %}<a href="{% url 'article_listing' %}">Blog</a>&nbsp;&nbsp;>&nbsp;&nbsp;Categories{% endif %}
+	{% if category %}<a href="{% url 'article_listing' %}">Blog</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="{% url 'category_index' %}">Categories</a>&nbsp;&nbsp;>&nbsp;&nbsp;{{ category.name }}{% endif %}
+	{% if article %}<a href="{% url 'article_listing' %}">Blog</a>&nbsp;&nbsp;>&nbsp;&nbsp;<a href="{% url 'archive_index' %}">Articles</a>&nbsp;&nbsp;>&nbsp;&nbsp;{{ article.title }}{% endif %}
+	{% if archive %}<a href="{% url 'article_listing' %}">Blog</a>&nbsp;&nbsp;>&nbsp;&nbsp;Archive{% endif %}
+	<span class="fright">
+		<a href="{% url 'archive_index' %}">Archive</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{% url 'category_index' %}">Categories</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="{% url 'feed' %}">Feed</a>
+	</span>
+	<hr>
+</h5>

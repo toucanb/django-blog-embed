@@ -1,0 +1,107 @@
+hr {
+	margin:30px 0;
+	padding:0;
+	border:0;
+	height:1px;
+	color:#282828;
+	background-color:#282828;
+	clear:both;
+}
+.blogNavigation hr {
+	margin:10px 0;
+	clear:both;
+}
+
+.fleft {
+	float:left;
+}
+.fright {
+	float:right;
+}
+
+.articleInfo {
+	margin-bottom:15px !important;
+}
+
+.syntaxhighlighter {
+	padding:5px 0;
+}
+
+.toolbar {
+	display:none !important;
+}
+.archive {
+	margin:0;
+	padding:0 0 5px 0;
+	list-style:none;
+}
+
+#commentList {
+	margin:0 0 15px 0;
+	border-top:2px solid #444;
+	border-left:2px solid #444;
+	border-right:2px solid #444;
+}
+table.comment {
+	padding:5px 10px;
+	width:100%;
+	background:#222;
+	text-align:left;
+	vertical-align:top;
+	border-bottom:2px solid #444;
+}
+table.commentAlt {
+	padding:5px 10px;
+	width:100%;
+	background:#2c2c2c;
+	text-align:left;
+	vertical-align:top;
+	border-bottom:2px solid #444;
+}
+table.comment td, table.commentAlt td {
+	text-align:left;
+	vertical-align:top;
+}
+.gravatarCol {
+	width:58px;
+}
+.commentAuthor {
+	color:#fcaf17;
+}
+
+#commentForm th {
+	padding:5px 10px;
+	text-align:left;
+	background:#222;
+}
+#commentForm img {
+	margin:0;
+	padding:0 5px 0 0;
+	width:60px;
+	height:30px;
+	float:left;
+}
+#commentForm textarea {
+	width:300px;
+	height:120px;
+}
+#commentForm input {
+	width:300px;
+	height:25px;
+}
+#commentForm input[name=captcha_1] {
+	width:140px;
+}
+#commentForm input[name=submit] {
+	width:80px;
+}
+
+textarea {
+	resize: none;
+	overflow: auto;
+}
+
+#contentPush {
+	padding-bottom:15px;
+	clear:both;
+}

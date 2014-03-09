@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load staticfiles %}
+{% block title %}Blog{% endblock %}
+{% block content %}
+	{% include 'blog_navigation.html' %}
+	{% for category in categories %}
+		<ul class="archive">
+			<li><a href="{{ category.get_absolute_url }}">{{ category.name }}</a></li>
+		</ul>
+	{% endfor %}
+	<div id="contentPush"></div>
+{% endblock %}
