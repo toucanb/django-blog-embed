@@ -1,0 +1,5 @@
+django>=1.6
+pillow>=2.2
+django-gravatar2
+django-ckeditor-updated
+django-simple-captcha

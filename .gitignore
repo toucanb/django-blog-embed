@@ -1,4 +1,19 @@
+# Python
 __pycache__/
 *.py[cod]
 *.log
 *.pot
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.bak
+*.cab
+*.msi
+*.msm
+*.msp
