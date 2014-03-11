@@ -86,9 +86,10 @@ def category_listing(request, requested_slug, requested_page=1):
 	return render(request, 'article_listing.html', { 'articles': returned_page.object_list, 'page': returned_page, 'category': category})
 
 class LatestArticlesFeed(Feed):
-	title = "Toucan Blanc"
+	title = "Your blog title"
 	link = "/blog/"
-	description = "Articles récemment publiés sur Toucan Blanc."
+	description = "A little description."
+	feed_copyright = "Copyright (c) 2014 Your Name"
 
 	def items(self):
 		return Article.objects.order_by('-date')[:10]
@@ -110,5 +111,3 @@ class LatestArticlesFeed(Feed):
 
 	def item_categories(self, item):
 		return item.categories.all()
-
-	feed_copyright = 'Copyright (c) 2014, Toucan Blanc'

@@ -28,7 +28,7 @@ hr {
 }
 
 .toolbar {
-	display:none !important;
+	display:none !important; /* Hide donation message from syntaxhighlighter */
 }
 .archive {
 	margin:0;
@@ -38,47 +38,47 @@ hr {
 
 #commentList {
 	margin:0 0 15px 0;
-	border-top:2px solid #444;
-	border-left:2px solid #444;
-	border-right:2px solid #444;
+	border-top:2px solid #ccc; /* Border color for comments */
+	border-left:2px solid #ccc; /* Border color for comments */
+	border-right:2px solid #ccc; /* Border color for comments */
 }
 table.comment {
 	padding:5px 10px;
 	width:100%;
-	background:#222;
+	background:#ddd; /* Background color for comment row1 */
 	text-align:left;
 	vertical-align:top;
-	border-bottom:2px solid #444;
+	border-bottom:2px solid #ccc; /* Border color for comments */
 }
 table.commentAlt {
 	padding:5px 10px;
 	width:100%;
-	background:#2c2c2c;
+	background:#d3d3d3; /* Background color for comment row2 */
 	text-align:left;
 	vertical-align:top;
-	border-bottom:2px solid #444;
+	border-bottom:2px solid #ccc; /* Border color for comments */
 }
 table.comment td, table.commentAlt td {
 	text-align:left;
 	vertical-align:top;
 }
 .gravatarCol {
-	width:58px;
+	width:58px; /* avatar size + wanted padding */
 }
 .commentAuthor {
-	color:#fcaf17;
+	color:#fcaf17; /* text color for author's comments */
 }
 
 #commentForm th {
 	padding:5px 10px;
 	text-align:left;
-	background:#222;
+	background:#ddd;
 }
 #commentForm img {
 	margin:0;
 	padding:0 5px 0 0;
-	width:60px;
-	height:30px;
+	width:60px; /* width of the captcha image */
+	height:30px; /* height of the captcha image */
 	float:left;
 }
 #commentForm textarea {
